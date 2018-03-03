@@ -31,7 +31,9 @@ public class noArgsTest {
 	@Test
 	public void testNoArgs() {
 		String[] args = {};
+		
 	    Calculator.main(args);
+	    
 	    assertEquals("Usage: Calculator fromPostalCode toPostalCode postType length width height weight", outContent.toString());
 	}
 }

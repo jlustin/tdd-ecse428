@@ -24,7 +24,7 @@ public class validInputTest {
 	private static String validHeight;
 	private static String validWeight;
 	
-	private static float actualPrice;
+	private static String actualPrice;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -34,9 +34,8 @@ public class validInputTest {
 		validLength = "15";
 		validWidth = "15";
 		validHeight = "15";
-		validWeight = "15";
-		
-		actualPrice = (float) 1.79 * Float.parseFloat(validWeight);
+		validWeight = "15";	
+		actualPrice = String.valueOf((float) 1.79 * Float.parseFloat(validWeight));
 	}
 
 	@Before
@@ -61,8 +60,7 @@ public class validInputTest {
 		
 		Calculator.main(args);
 		
-		assertNotNull(outContent.toString());
-		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
+		assertEquals(actualPrice, outContent.toString());
 	}
 
 }

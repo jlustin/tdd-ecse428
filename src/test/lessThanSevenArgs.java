@@ -46,7 +46,9 @@ public class lessThanSevenArgs {
 	@Test
 	public void testLessThanSevenArgs() {
 		String[] args = {arg1, arg2, arg3, arg4, arg5};
+		
 	    Calculator.main(args);
+	    
 	    assertEquals("Usage: Calculator fromPostalCode toPostalCode postType length width height weight", outContent.toString());
 	}
 }

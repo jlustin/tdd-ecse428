@@ -23,9 +23,7 @@ public class invalidToPostalCode {
 	private static String validWidth;
 	private static String validHeight;
 	private static String validWeight;
-	
-	private static float actualPrice;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		validFrom = "P0B1L0P";
@@ -35,18 +33,12 @@ public class invalidToPostalCode {
 		validWidth = "15";
 		validHeight = "15";
 		validWeight = "15";
-		
-		actualPrice = (float) 1.79 * Float.parseFloat(validWeight);
 	}
 
 	@Before
 	public void setUpStreams() {
 	    System.setOut(new PrintStream(outContent));
 	    System.setErr(new PrintStream(errContent));
-	}
-	
-	@After
-	public void tearDown() throws Exception {
 	}
 
 	@After

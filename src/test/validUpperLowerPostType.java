@@ -57,11 +57,10 @@ public class validUpperLowerPostType {
 	
 	@Test
 	public void testLowercasePostType() {
-		String[] args = {validFrom, validTo, upperCasePostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {validFrom, validTo, upperCasePostType, validLength, validWidth,validHeight, validWeight};
 		
 		Calculator.main(args);
-		
-		assertNotNull(outContent.toString());
+
 		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
 	}
 }

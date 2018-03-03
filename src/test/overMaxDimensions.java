@@ -15,8 +15,6 @@ public class overMaxDimensions {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
-	private static Calculator postalRate;
-	
 	private static String validFrom;
 	private static String validTo;
 	private static String validPostType;
@@ -51,8 +49,10 @@ public class overMaxDimensions {
 	@Test
 	public void test() {
 		String[] args = {validFrom,validTo,validPostType,overMaxLength,overMaxWidth,overMaxHeight,validWeight};
+		
 	    Calculator.main(args);
-	    assertEquals("Over Dimensions, the maximum length is 100 cm, the maximum width is 80cm and the maximum height is 50 cm", outContent.toString());
+	    
+	    assertEquals("Over Dimensions: the maximum length is 100 cm, the maximum width is 80cm and the maximum height is 50 cm", outContent.toString());
 	}
 
 }

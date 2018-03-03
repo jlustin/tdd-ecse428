@@ -11,28 +11,31 @@ import org.junit.Test;
 
 import calculator.Calculator;
 
-public class nonExistentToPostalCode {
+public class validUpperLowerToPostalCode {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
 	private static String validFrom;
-	private static String nonExistentValidTo;
+	private static String validUpperlowerCaseTo;
 	private static String validPostType;
 	private static String validLength;
 	private static String validWidth;
 	private static String validHeight;
 	private static String validWeight;
 	
+	private static String actualPrice;
+	
 	@Before
 	public void setUp() throws Exception {
-		validFrom = "M6E1R1";
-		nonExistentValidTo = "C9K8E3";
-		validPostType = "regular";
-		validLength = "100";
-		validWidth = "80";
-		validHeight = "50";
-		validWeight = "30";
+		validFrom = "s0a3C0";
+		validUpperlowerCaseTo = "g1v3V5";
+		validPostType = "priority";
+		validLength = "37";
+		validWidth = "34";
+		validHeight = "44";
+		validWeight = "20";		
+		actualPrice = String.valueOf((float) 9.835 * Float.parseFloat(validWeight));
 	}
 
 	@Before
@@ -52,12 +55,11 @@ public class nonExistentToPostalCode {
 	}
 	
 	@Test
-	public void testValidInput() {
-		String[] args = {validFrom, nonExistentValidTo, validPostType,validLength,validWidth,validHeight,validWeight};
+	public void testLowerFromLowerTo() {
+		String[] args = {validFrom, validUpperlowerCaseTo, validPostType, validLength, validWidth,validHeight,validWeight};
 		
 		Calculator.main(args);
 		
-		assertEquals("Invalid input: To postal code is non-existent in our database.", outContent.toString());
+		assertEquals(actualPrice, outContent.toString());
 	}
-
 }

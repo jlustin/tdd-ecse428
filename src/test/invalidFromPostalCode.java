@@ -23,8 +23,7 @@ public class invalidFromPostalCode {
 	private static String validWidth;
 	private static String validHeight;
 	private static String validWeight;
-	
-	private static float actualPrice;
+
 	
 	@Before
 	public void setUp() throws Exception {
@@ -35,8 +34,6 @@ public class invalidFromPostalCode {
 		validWidth = "15";
 		validHeight = "15";
 		validWeight = "15";
-		
-		actualPrice = (float) 1.79 * Float.parseFloat(validWeight);
 	}
 
 	@Before
@@ -45,9 +42,6 @@ public class invalidFromPostalCode {
 	    System.setErr(new PrintStream(errContent));
 	}
 	
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@After
 	public void restoreStreams() {
@@ -57,7 +51,7 @@ public class invalidFromPostalCode {
 	
 	@Test
 	public void testValidInput() {
-		String[] args = {invalidFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {invalidFrom, validTo, validPostType, validLength, validWidth, validHeight, validWeight};
 		
 		Calculator.main(args);
 		

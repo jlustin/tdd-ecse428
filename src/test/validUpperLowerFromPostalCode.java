@@ -11,36 +11,31 @@ import org.junit.Test;
 
 import calculator.Calculator;
 
-public class validUpperLowerPostalCode {
+public class validUpperLowerFromPostalCode {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
-	private static String lowerCaseFrom;
-	private static String upperCaseFrom;
-	private static String lowerCaseTo;
-	private static String upperCaseTo;
+	private static String validUpperlowerCaseFrom;
+	private static String validTo;
 	private static String validPostType;
 	private static String validLength;
 	private static String validWidth;
 	private static String validHeight;
 	private static String validWeight;
 	
-	private static float actualPrice;
+	private static String actualPrice;
 	
 	@Before
 	public void setUp() throws Exception {
-		upperCaseFrom = "N4K5N5";
-		lowerCaseFrom = upperCaseFrom.toLowerCase();
-		upperCaseTo = "P0L1T0";
-		lowerCaseTo = upperCaseTo.toLowerCase();
+		validUpperlowerCaseFrom = "N4k5n5";
+		validTo = "P0L1T0";
 		validPostType = "xpress";
 		validLength = "30";
 		validWidth = "30";
 		validHeight = "30";
-		validWeight = "20";
-		
-		actualPrice = (float) 3.194 * Float.parseFloat(validWeight);
+		validWeight = "20";		
+		actualPrice = String.valueOf((float) 3.194 * Float.parseFloat(validWeight));
 	}
 
 	@Before
@@ -61,11 +56,10 @@ public class validUpperLowerPostalCode {
 	
 	@Test
 	public void testLowerFromLowerTo() {
-		String[] args = {lowerCaseFrom, lowerCaseTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {validUpperlowerCaseFrom, validTo, validPostType, validLength, validWidth,validHeight,validWeight};
 		
 		Calculator.main(args);
 		
-		assertNotNull(outContent.toString());
-		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
+		assertEquals(actualPrice, outContent.toString());
 	}
 }

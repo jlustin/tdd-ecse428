@@ -50,7 +50,9 @@ public class lessOrEqualToZeroWeight {
 	@Test
 	public void test() {
 		String[] args = {validFrom,validTo,validPostType,validLength,validWidth,validHeight,lessOrEqualToZeroWeight};
+		
 	    Calculator.main(args);
+	    
 	    assertEquals("Your input weight should be bigger than 0", outContent.toString());
 	}
 

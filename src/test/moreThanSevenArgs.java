@@ -52,7 +52,9 @@ public class moreThanSevenArgs {
 	@Test
 	public void testMoreThanSevenArgs() {
 		String[] args = {arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8};
+		
 	    Calculator.main(args);
+	    
 	    assertEquals("Usage: Calculator fromPostalCode toPostalCode postType length width height weight", outContent.toString());
 	}
 }

@@ -16,8 +16,6 @@ public class lessOrEqualToZeroDimensions {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
-	private static Calculator postalRate;
-	
 	private static String validFrom;
 	private static String validTo;
 	private static String validPostType;
@@ -42,11 +40,19 @@ public class lessOrEqualToZeroDimensions {
 	    System.setOut(new PrintStream(outContent));
 	    System.setErr(new PrintStream(errContent));
 	}
+	
+	@After
+	public void restoreStreams() {
+	    System.setOut(System.out);
+	    System.setErr(System.err);
+	}
 
 	@Test
 	public void test() {
 		String[] args = {validFrom,validTo,validPostType,lessOrEqualToZeroLength,lessOrEqualToZeroWidth,lessOrEqualToZeroHeight,validWeight};
+		
 	    Calculator.main(args);
+	    
 	    assertEquals("Your input dimensions should be bigger than 0", outContent.toString());
 	}
 

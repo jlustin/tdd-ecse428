@@ -24,8 +24,6 @@ public class nonExistentFromPostalCode {
 	private static String validHeight;
 	private static String validWeight;
 	
-	private static float actualPrice;
-	
 	@Before
 	public void setUp() throws Exception {
 		nonExistentValidFrom = "C9K8A5";
@@ -35,8 +33,6 @@ public class nonExistentFromPostalCode {
 		validWidth = "80";
 		validHeight = "50";
 		validWeight = "30";
-		
-		actualPrice = (float) 2.018 * Float.parseFloat(validWeight);
 	}
 
 	@Before
@@ -57,7 +53,7 @@ public class nonExistentFromPostalCode {
 	
 	@Test
 	public void testValidInput() {
-		String[] args = {nonExistentValidFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {nonExistentValidFrom, validTo, validPostType,validLength,validWidth,validHeight, validWeight};
 		
 		Calculator.main(args);
 		

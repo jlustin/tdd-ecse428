@@ -16,8 +16,6 @@ public class nonMatchingPostalCodes {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
-	private static Calculator postalRate;
-	
 	private static String validFrom;
 	private static String validTo;
 	private static String validPostType;
@@ -25,8 +23,6 @@ public class nonMatchingPostalCodes {
 	private static String validWidth;
 	private static String validHeight;
 	private static String validWeight;
-	
-	private static float actualPrice;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -38,7 +34,6 @@ public class nonMatchingPostalCodes {
 		validHeight = "10";
 		validWeight = "24";
 		
-		actualPrice = (float) 2.683 * Float.parseFloat(validWeight);
 	}
 
 	@Before
@@ -59,7 +54,7 @@ public class nonMatchingPostalCodes {
 	
 	@Test
 	public void testValidInput() {
-		String[] args = {validFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {validFrom, validTo, validPostType,validLength,validWidth,validHeight,validWeight};
 		
 		Calculator.main(args);
 		
