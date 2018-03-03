@@ -38,10 +38,30 @@ public class Calculator {
 		String fromData = args[0].toUpperCase();
 		String toData = args[1].toUpperCase();
 		String type = args[2].toLowerCase();
-		Float length = Float.parseFloat(args[3]);
-		Float width= Float.parseFloat(args[4]);
-		Float height= Float.parseFloat(args[5]);
-		Float weight = Float.parseFloat(args[6]);
+		try {
+			length = Float.parseFloat(args[3]);
+			width= Float.parseFloat(args[4]);
+			height= Float.parseFloat(args[5]);
+			weight = Float.parseFloat(args[6]);
+		} catch (NumberFormatException e) {
+			System.out.print("Invalid input: length, width, height or weight is/are invalid.");
+			return;
+		}
+		
+		if ((length <= 0) || (width <= 0) || (height <= 0) || (weight <= 0)){
+			System.out.print("Your number inputs should be larger than 0");
+			return;
+		}
+		
+		if ((length > 100) || (width > 80) || (height > 50)){
+			System.out.print("Over Dimensions: the maximum length is 100 cm, the maximum width is 80cm and the maximum height is 50 cm");
+			return;
+		}
+		
+		if (weight > 30) {
+			System.out.print("Over Weight, the maximum weight is 30 kg");
+			return;
+		}
 		
 		if (!isValidPostalCode(fromData)) {
 			System.out.print("Invalid input: From postal code is invalid.");
@@ -49,16 +69,51 @@ public class Calculator {
 		} else if (!isValidPostalCode(toData)) {
 			System.out.print("Invalid input: To postal code is invalid.");
 			return;
+		} 
+		
+		if (!(type.equals("regular")) && !(type.equals("xpress")) && !(type.equals("priority"))) {
+			System.out.print("Invalid input: post type is invalid.");
+			return;
 		}
 		
 		Float postalPrice = 0f;
 		PostalInfo tempPostalInfo = null;
-		
+		boolean noExistentFromPostalCode = true, noExistentToPostalCode = true, noMatching = false;
+				
 		for(PostalInfo p: postalInfos){
-			if(p.getFromPostalCode().equals(fromData)&&p.getToPostalCode().equals(toData)){
-				tempPostalInfo = p;
+			if(p.getFromPostalCode().equals(fromData)) {
+				noExistentFromPostalCode = false;
 			}
 		}
+		
+		for(PostalInfo p: postalInfos){
+			if(p.getToPostalCode().equals(toData)) {
+				noExistentToPostalCode = false;
+			}
+		}
+		
+		if(noExistentFromPostalCode){
+			System.out.print("Invalid input: From postal code is non-existent in our database.");
+			return;
+		} else if (noExistentToPostalCode) {
+			System.out.print("Invalid input: To postal code is non-existent in our database.");
+			return;
+		}
+		
+		for(PostalInfo p: postalInfos){
+			if(p.getFromPostalCode().equals(fromData)) {
+				if(p.getToPostalCode().equals(toData)){
+					tempPostalInfo=p;
+				}
+				else noMatching = true;
+			}
+		}
+		
+		if (noMatching){
+			System.out.print("Entered From and To postal codes do not match in our database.");
+			return;
+		}
+		
 		if(type.equals(postalType[0])){
 			postalPrice = tempPostalInfo.getRegularPrice()* weight;
 		}

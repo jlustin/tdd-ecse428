@@ -48,7 +48,7 @@ public class overMaxWeight {
 	}
 
 	@Test
-	public void test() {
+	public void testOverMaxWeight() {
 		String[] args = {validFrom,validTo,validPostType,validLength,validWidth,validHeight,overMaxWeight};
 	    Calculator.main(args);
 	    assertEquals("Over Weight, the maximum weight is 30 kg", outContent.toString());

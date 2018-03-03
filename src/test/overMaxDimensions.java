@@ -47,7 +47,7 @@ public class overMaxDimensions {
 	}
 	
 	@Test
-	public void test() {
+	public void testOverMaxDimensions() {
 		String[] args = {validFrom,validTo,validPostType,overMaxLength,overMaxWidth,overMaxHeight,validWeight};
 		
 	    Calculator.main(args);

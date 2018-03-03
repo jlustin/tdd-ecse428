@@ -53,7 +53,7 @@ public class nonMatchingPostalCodes {
 	}
 	
 	@Test
-	public void testValidInput() {
+	public void testNonMatchingPostalCodes() {
 		String[] args = {validFrom, validTo, validPostType,validLength,validWidth,validHeight,validWeight};
 		
 		Calculator.main(args);

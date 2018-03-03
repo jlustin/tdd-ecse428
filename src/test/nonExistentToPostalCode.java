@@ -52,7 +52,7 @@ public class nonExistentToPostalCode {
 	}
 	
 	@Test
-	public void testValidInput() {
+	public void testNonExistentToPostalCode() {
 		String[] args = {validFrom, nonExistentValidTo, validPostType,validLength,validWidth,validHeight,validWeight};
 		
 		Calculator.main(args);

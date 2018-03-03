@@ -48,7 +48,7 @@ public class invalidPostType {
 	}
 
 	@Test
-	public void test() {
+	public void testInvalidPostType() {
 		String[] args = {validFrom, validTo, invalidPostType, validLength, validWidth, validHeight, validWeight};
 		
 		Calculator.main(args);
