@@ -27,11 +27,6 @@ public class Calculator {
 	
 	public static void main(String[] args){
 		
-		if ((args.length == 0) || (args.length < 7) || (args.length > 7)) {
-			System.out.print("Usage: Calculator fromPostalCode toPostalCode postType length width height weight");
-			return;
-		} 
-		
 		ArrayList<PostalInfo> postalInfos = new ArrayList<PostalInfo>();
 		parseData("postal-code-data.csv",postalInfos);
 
