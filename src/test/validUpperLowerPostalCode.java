@@ -16,8 +16,6 @@ public class validUpperLowerPostalCode {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
-	private static Calculator postalRate;
-	
 	private static String lowerCaseFrom;
 	private static String upperCaseFrom;
 	private static String lowerCaseTo;

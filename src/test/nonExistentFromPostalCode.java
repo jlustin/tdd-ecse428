@@ -11,12 +11,12 @@ import org.junit.Test;
 
 import calculator.Calculator;
 
-public class validInputTest {
+public class nonExistentFromPostalCode {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-
-	private static String validFrom;
+	
+	private static String nonExistentValidFrom;
 	private static String validTo;
 	private static String validPostType;
 	private static String validLength;
@@ -28,15 +28,15 @@ public class validInputTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		validFrom = "P0B1L0";
-		validTo = "H4A1H3";
+		nonExistentValidFrom = "C9K8A5";
+		validTo = "K1L6C7";
 		validPostType = "xpress";
-		validLength = "15";
-		validWidth = "15";
-		validHeight = "15";
-		validWeight = "15";
+		validLength = "100";
+		validWidth = "80";
+		validHeight = "50";
+		validWeight = "30";
 		
-		actualPrice = (float) 1.79 * Float.parseFloat(validWeight);
+		actualPrice = (float) 2.018 * Float.parseFloat(validWeight);
 	}
 
 	@Before
@@ -57,12 +57,11 @@ public class validInputTest {
 	
 	@Test
 	public void testValidInput() {
-		String[] args = {validFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {nonExistentValidFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
 		
 		Calculator.main(args);
 		
-		assertNotNull(outContent.toString());
-		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
+		assertEquals("Invalid input: From postal code is non-existent in our database.", outContent.toString());
 	}
 
 }

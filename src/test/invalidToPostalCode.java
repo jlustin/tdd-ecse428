@@ -11,13 +11,13 @@ import org.junit.Test;
 
 import calculator.Calculator;
 
-public class validInputTest {
+public class invalidToPostalCode {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-
+	
 	private static String validFrom;
-	private static String validTo;
+	private static String invalidTo;
 	private static String validPostType;
 	private static String validLength;
 	private static String validWidth;
@@ -28,8 +28,8 @@ public class validInputTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		validFrom = "P0B1L0";
-		validTo = "H4A1H3";
+		validFrom = "P0B1L0P";
+		invalidTo = "My house";
 		validPostType = "xpress";
 		validLength = "15";
 		validWidth = "15";
@@ -57,12 +57,11 @@ public class validInputTest {
 	
 	@Test
 	public void testValidInput() {
-		String[] args = {validFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {validFrom, invalidTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
 		
 		Calculator.main(args);
 		
-		assertNotNull(outContent.toString());
-		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
+		assertEquals("Invalid input: To postal code is invalid.", outContent.toString());
 	}
 
 }

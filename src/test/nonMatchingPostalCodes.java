@@ -11,11 +11,13 @@ import org.junit.Test;
 
 import calculator.Calculator;
 
-public class validInputTest {
+public class nonMatchingPostalCodes {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-
+	
+	private static Calculator postalRate;
+	
 	private static String validFrom;
 	private static String validTo;
 	private static String validPostType;
@@ -28,15 +30,15 @@ public class validInputTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		validFrom = "P0B1L0";
-		validTo = "H4A1H3";
-		validPostType = "xpress";
-		validLength = "15";
-		validWidth = "15";
-		validHeight = "15";
-		validWeight = "15";
+		validFrom = "H2B1T6";
+		validTo = "M4W1J7";
+		validPostType = "priority";
+		validLength = "50";
+		validWidth = "60";
+		validHeight = "10";
+		validWeight = "24";
 		
-		actualPrice = (float) 1.79 * Float.parseFloat(validWeight);
+		actualPrice = (float) 2.683 * Float.parseFloat(validWeight);
 	}
 
 	@Before
@@ -61,8 +63,7 @@ public class validInputTest {
 		
 		Calculator.main(args);
 		
-		assertNotNull(outContent.toString());
-		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
+		assertEquals("Entered From and To postal codes do not match in our database.", outContent.toString());
 	}
 
 }

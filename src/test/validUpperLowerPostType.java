@@ -15,9 +15,7 @@ public class validUpperLowerPostType {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-	
-	private static Calculator postalRate;
-	
+
 	private static String validFrom;
 	private static String validTo;
 	private static String upperCasePostType;
