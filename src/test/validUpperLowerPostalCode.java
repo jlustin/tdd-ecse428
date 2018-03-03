@@ -62,13 +62,12 @@ public class validUpperLowerPostalCode {
 	}
 	
 	@Test
-	public void testUpperFromLowerTo() {
-		String[] args = {upperCaseFrom, lowerCaseTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+	public void testLowerFromLowerTo() {
+		String[] args = {lowerCaseFrom, lowerCaseTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
 		
 		Calculator.main(args);
 		
 		assertNotNull(outContent.toString());
 		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
 	}
-
 }
