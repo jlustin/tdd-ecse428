@@ -50,7 +50,7 @@ public class invalidFromPostalCode {
 	}
 	
 	@Test
-	public void testValidInput() {
+	public void testInvalidFromPostalCode() {
 		String[] args = {invalidFrom, validTo, validPostType, validLength, validWidth, validHeight, validWeight};
 		
 		Calculator.main(args);

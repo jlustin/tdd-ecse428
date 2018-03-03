@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.text.DecimalFormat;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,6 +14,7 @@ import calculator.Calculator;
 
 public class validInputTest {
 
+	private final DecimalFormat decimal = new DecimalFormat(".##");
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
@@ -35,7 +37,7 @@ public class validInputTest {
 		validWidth = "15";
 		validHeight = "15";
 		validWeight = "15";	
-		actualPrice = String.valueOf((float) 1.79 * Float.parseFloat(validWeight));
+		actualPrice = String.valueOf(decimal.format((float) 1.79 * Float.parseFloat(validWeight)));
 	}
 
 	@Before
@@ -56,7 +58,7 @@ public class validInputTest {
 	
 	@Test
 	public void testValidInput() {
-		String[] args = {validFrom, validTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
+		String[] args = {validFrom, validTo, validPostType, validLength, validWidth, validHeight, validWeight};
 		
 		Calculator.main(args);
 		

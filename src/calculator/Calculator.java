@@ -27,22 +27,35 @@ public class Calculator {
 	
 	public static void main(String[] args){
 		
+		if ((args.length == 0) || (args.length < 7) || (args.length > 7)) {
+			System.out.print("Usage: Calculator fromPostalCode toPostalCode postType length width height weight");
+			return;
+		}
+		
 		ArrayList<PostalInfo> postalInfos = new ArrayList<PostalInfo>();
 		parseData("postal-code-data.csv",postalInfos);
 
-		String fromData = args[0];
-		String toData = args[1];
-		String type = args[2];
+		String fromData = args[0].toUpperCase();
+		String toData = args[1].toUpperCase();
+		String type = args[2].toLowerCase();
 		Float length = Float.parseFloat(args[3]);
 		Float width= Float.parseFloat(args[4]);
 		Float height= Float.parseFloat(args[5]);
 		Float weight = Float.parseFloat(args[6]);
 		
+		if (!isValidPostalCode(fromData)) {
+			System.out.print("Invalid input: From postal code is invalid.");
+			return;
+		} else if (!isValidPostalCode(toData)) {
+			System.out.print("Invalid input: To postal code is invalid.");
+			return;
+		}
+		
 		Float postalPrice = 0f;
 		PostalInfo tempPostalInfo = null;
 		
 		for(PostalInfo p: postalInfos){
-			if(p.getFromPostalCode().equals(fromData)){
+			if(p.getFromPostalCode().equals(fromData)&&p.getToPostalCode().equals(toData)){
 				tempPostalInfo = p;
 			}
 		}
@@ -108,5 +121,27 @@ public class Calculator {
 		return null;		
 	}
 	
-	
+	private static boolean isValidPostalCode (String postalCode) {
+		postalCode.toUpperCase();
+		
+		if (postalCode.length() != 6) {
+			return false;
+		}
+		
+		char letterA = postalCode.charAt(0);
+		char numberA = postalCode.charAt(1);
+		char letterB = postalCode.charAt(2);
+		char numberB = postalCode.charAt(3);
+		char letterC = postalCode.charAt(4);
+		char numberC = postalCode.charAt(5);
+		
+		if (!Character.isLetter(letterA)) return false;
+		else if (!Character.isLetter(letterB)) return false;
+		else if (!Character.isLetter(letterC)) return false;
+		else if (!Character.isDigit(numberA)) return false;
+		else if (!Character.isDigit(numberB)) return false;
+		else if (!Character.isDigit(numberC)) return false;
+		
+		return true;
+	}
 }

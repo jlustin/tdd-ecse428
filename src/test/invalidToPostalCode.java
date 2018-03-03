@@ -26,7 +26,7 @@ public class invalidToPostalCode {
 
 	@Before
 	public void setUp() throws Exception {
-		validFrom = "P0B1L0P";
+		validFrom = "P0B1L0";
 		invalidTo = "My house";
 		validPostType = "xpress";
 		validLength = "15";
@@ -48,7 +48,7 @@ public class invalidToPostalCode {
 	}
 	
 	@Test
-	public void testValidInput() {
+	public void testInvalidToPostalCode() {
 		String[] args = {validFrom, invalidTo, validPostType, String.valueOf(validLength), String.valueOf(validWidth), String.valueOf(validHeight), String.valueOf(validWeight)};
 		
 		Calculator.main(args);
