@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.text.DecimalFormat;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,6 +14,7 @@ import calculator.Calculator;
 
 public class validUpperLowerPostType {
 
+	private final DecimalFormat decimal = new DecimalFormat(".##");
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
@@ -24,7 +26,7 @@ public class validUpperLowerPostType {
 	private static String validHeight;
 	private static String validWeight;
 	
-	private static float actualPrice;
+	private static String actualPrice;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -36,7 +38,7 @@ public class validUpperLowerPostType {
 		validHeight = "50";
 		validWeight = "15";
 		
-		actualPrice = (float) 2.683 * Float.parseFloat(validWeight);
+		actualPrice = String.valueOf(decimal.format((float) 2.683 * Float.parseFloat(validWeight)));
 	}
 
 	@Before
@@ -61,6 +63,6 @@ public class validUpperLowerPostType {
 		
 		Calculator.main(args);
 
-		assertEquals(actualPrice, Float.parseFloat(outContent.toString()), 2);
+		assertEquals(actualPrice, outContent.toString());
 	}
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.text.DecimalFormat;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,7 +13,8 @@ import org.junit.Test;
 import calculator.Calculator;
 
 public class validUpperLowerToPostalCode {
-
+	
+	private final DecimalFormat decimal = new DecimalFormat(".##");
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
@@ -35,7 +37,7 @@ public class validUpperLowerToPostalCode {
 		validWidth = "34";
 		validHeight = "44";
 		validWeight = "20";		
-		actualPrice = String.valueOf((float) 9.835 * Float.parseFloat(validWeight));
+		actualPrice = String.valueOf(decimal.format((float) 9.835 * Float.parseFloat(validWeight)));
 	}
 
 	@Before
