@@ -52,7 +52,7 @@ public class overMaxDimensions {
 		
 	    Calculator.main(args);
 	    
-	    assertEquals("Over Dimensions: the maximum length is 100 cm, the maximum width is 80cm and the maximum height is 50 cm", outContent.toString());
+	    assertEquals("Over Dimensions: the maximum length is 100 cm, the maximum width is 80 cm and the maximum height is 50 cm", outContent.toString());
 	}
 
 }

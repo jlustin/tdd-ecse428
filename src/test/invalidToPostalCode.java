@@ -27,7 +27,7 @@ public class invalidToPostalCode {
 	@Before
 	public void setUp() throws Exception {
 		validFrom = "P0B1L0";
-		invalidTo = "My house";
+		invalidTo = "Myhouse";
 		validPostType = "xpress";
 		validLength = "15";
 		validWidth = "15";

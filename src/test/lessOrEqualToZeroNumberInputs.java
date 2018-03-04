@@ -28,7 +28,7 @@ public class lessOrEqualToZeroNumberInputs {
 	public void setUp() throws Exception {
 		validFrom = "L5L3A1";
 		validTo = "G1V3V5";
-		validPostType = "epress";
+		validPostType = "xpress";
 		lessOrEqualToZeroLength = "0";
 		lessOrEqualToZeroWidth = "-12";
 		lessOrEqualToZeroHeight = "-44";

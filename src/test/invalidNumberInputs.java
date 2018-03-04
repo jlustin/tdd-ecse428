@@ -54,7 +54,7 @@ public class invalidNumberInputs {
 		
 		Calculator.main(args);
 		
-		assertEquals("Invalid input: length, width, height or weight is/are invalid.", outContent.toString());
+		assertEquals("Invalid input: length, width, height or weight should be floating number.", outContent.toString());
 	}
 
 }

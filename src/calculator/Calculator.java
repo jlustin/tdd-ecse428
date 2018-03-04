@@ -44,7 +44,7 @@ public class Calculator {
 			height= Float.parseFloat(args[5]);
 			weight = Float.parseFloat(args[6]);
 		} catch (NumberFormatException e) {
-			System.out.print("Invalid input: length, width, height or weight is/are invalid.");
+			System.out.print("Invalid input: length, width, height or weight should be floating number.");
 			return;
 		}
 		
@@ -54,12 +54,12 @@ public class Calculator {
 		}
 		
 		if ((length > 100) || (width > 80) || (height > 50)){
-			System.out.print("Over Dimensions: the maximum length is 100 cm, the maximum width is 80cm and the maximum height is 50 cm");
+			System.out.print("Over Dimensions: the maximum length is 100 cm, the maximum width is 80 cm and the maximum height is 50 cm");
 			return;
 		}
 		
 		if (weight > 30) {
-			System.out.print("Over Weight, the maximum weight is 30 kg");
+			System.out.print("Over Weight: the maximum weight is 30 kg");
 			return;
 		}
 		
