@@ -28,7 +28,7 @@ public class Calculator {
 	public static void main(String[] args){
 		
 		if ((args.length == 0) || (args.length < 7) || (args.length > 7)) {
-			System.out.print("Usage: Calculator fromPostalCode toPostalCode postType length width height weight");
+			System.out.print("Usage: Calculator.jar fromPostalCode toPostalCode postType length width height weight");
 			return;
 		}
 		

@@ -34,6 +34,6 @@ public class noArgsTest {
 		
 	    Calculator.main(args);
 	    
-	    assertEquals("Usage: Calculator fromPostalCode toPostalCode postType length width height weight", outContent.toString());
+	    assertEquals("Usage: Calculator.jar fromPostalCode toPostalCode postType length width height weight", outContent.toString());
 	}
 }
